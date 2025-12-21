@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Change this to your Railway URL when deployed
-const API_URL = 'web-production-1366c.up.railway.app/api/';
+const API_URL = 'https://web-production-1366c.up.railway.app/api/';
 
 const api = axios.create({
     baseURL: API_URL,
@@ -20,7 +20,7 @@ api.interceptors.request.use((config) => {
     // No, that's insecure.
     // Let's assume we do a login call that returns a token (even if it's just the user ID for this Mock).
     // CORRECT APPROACH: I'll use Basic Auth for this demo because it's built-in and stateless enough.
-    
+
     const basicAuth = localStorage.getItem('auth');
     if (basicAuth) {
         config.headers.Authorization = `Basic ${basicAuth}`;
