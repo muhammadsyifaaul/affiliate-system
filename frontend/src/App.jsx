@@ -43,7 +43,7 @@ const Navbar = () => {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/affiliate-system">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
