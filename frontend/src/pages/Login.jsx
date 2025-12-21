@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -14,7 +14,9 @@ const Login = () => {
         try {
             // Validate credentials by fetching 'me' or similar. 
             // We'll use the affiliates list which is protected.
-            const response = await axios.get('http://127.0.0.1:8000/api/affiliates/', {
+            // Validate credentials by fetching 'me' or similar. 
+            // We'll use the affiliates list which is protected.
+            const response = await api.get('affiliates/', {
                 headers: { Authorization: `Basic ${auth}` }
             });
 
