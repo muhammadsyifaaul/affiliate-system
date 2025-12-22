@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import api from '../api';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -65,6 +65,9 @@ const Login = () => {
                     <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>Login</button>
                     <p style={{ marginTop: '1rem', textAlign: 'center', fontSize: '0.9rem', color: '#94a3b8' }}>
                         (Use admin/admin)
+                    </p>
+                    <p style={{ marginTop: '0.5rem', textAlign: 'center', fontSize: '0.9rem', color: '#94a3b8' }}>
+                        Don't have an account? <Link to="/register" style={{ color: 'var(--primary)' }}>Register</Link>
                     </p>
                 </form>
             </div>

@@ -4,6 +4,7 @@ import './App.css';
 
 // Pages - placeholder imports
 import Login from './pages/Login';
+import Register from './pages/Register';
 import AffiliateDashboard from './pages/AffiliateDashboard';
 import AdminDashboard from './pages/AdminDashboard';
 import Home from './pages/Home';
@@ -50,6 +51,7 @@ function App() {
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<AffiliateDashboard />} />
         <Route path="/admin" element={<AdminDashboard />} />
       </Routes>

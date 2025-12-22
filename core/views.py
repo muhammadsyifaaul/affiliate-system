@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from django.shortcuts import get_object_or_404
 from .models import Affiliate, Transaction, Withdrawal, Product
-from .serializers import AffiliateSerializer, TransactionSerializer, WithdrawalSerializer, ProductSerializer
+from .serializers import AffiliateSerializer, TransactionSerializer, WithdrawalSerializer, ProductSerializer, RegisterSerializer
 
 class IsAffiliateOwner(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
@@ -100,3 +100,16 @@ class WithdrawalViewSet(viewsets.ModelViewSet):
         withdrawal.reviewed_at = timezone.now()
         withdrawal.save()
         return Response({'status': 'rejected'})
+
+class RegisterView(views.APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, request):
+        serializer = RegisterSerializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.save()
+            return Response({
+                "user": serializer.data,
+                "message": "User created successfully",
+            }, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

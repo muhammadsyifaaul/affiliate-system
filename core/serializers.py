@@ -12,6 +12,23 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['id', 'username', 'email']
 
+class RegisterSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True)
+
+    class Meta:
+        model = User
+        fields = ['username', 'password', 'email']
+
+    def create(self, validated_data):
+        user = User.objects.create_user(
+            username=validated_data['username'],
+            email=validated_data.get('email', ''),
+            password=validated_data['password']
+        )
+        # Auto-create affiliate profile
+        Affiliate.objects.create(user=user)
+        return user
+
 class AffiliateSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
     total_earnings = serializers.DecimalField(max_digits=10, decimal_places=2, read_only=True)
