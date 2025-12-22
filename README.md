@@ -3,8 +3,7 @@
 A simple, headless Affiliate Management System built with Django (Backend) and React (Frontend).
 
 ## 🚀 Live Demo
-- **Frontend**: [Link to your GitHub Pages]
-- **Backend API**: [Link to your Railway App]
+  https://muhammadsyifaaul.github.io/affiliate-system/
 
 ## 🏗 Architecture
 The system follows a headless architecture:
