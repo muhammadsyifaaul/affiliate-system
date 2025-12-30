@@ -1,4 +1,4 @@
-# Affiliate Management System
+# Affiliate Management System (BE is under maintain)
 
 A simple, headless Affiliate Management System built with Django (Backend) and React (Frontend).
 
